@@ -29,12 +29,12 @@ public class BakerController {
     }
 
     @PostMapping(value = "/bakers/")
-    public ResponseEntity<Baker> create(Baker baker) {
+    public ResponseEntity<Baker> create(@RequestBody Baker baker) {
         return new ResponseEntity<>(service.create(baker), HttpStatus.CREATED);
     }
 
     @PutMapping(value = "bakers/update")
-    public ResponseEntity<Baker> update(Long id, Baker baker) {
+    public ResponseEntity<Baker> update(@RequestBody Long id, @RequestBody Baker baker) {
         return new ResponseEntity<>(service.update(id, baker), HttpStatus.OK);
     }
 
