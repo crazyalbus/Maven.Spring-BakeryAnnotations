@@ -13,7 +13,7 @@ public class MuffinController {
 
     private MuffinService service;
 
-
+    @Autowired
     public MuffinController(MuffinService service) {
         this.service = service;
     }
@@ -29,12 +29,12 @@ public class MuffinController {
     }
 
     @PostMapping(value = "/muffins/")
-    public ResponseEntity<Muffin> create(Muffin baker) {
+    public ResponseEntity<Muffin> create(@RequestBody Muffin baker) {
         return new ResponseEntity<>(service.create(baker), HttpStatus.CREATED);
     }
 
     @PutMapping(value = "/muffins/update")
-    public ResponseEntity<Muffin> update(Long id, Muffin baker) {
+    public ResponseEntity<Muffin> update(@RequestBody Long id, @RequestBody Muffin baker) {
         return new ResponseEntity<>(service.update(id, baker), HttpStatus.OK);
     }
 

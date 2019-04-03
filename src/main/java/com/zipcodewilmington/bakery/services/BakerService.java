@@ -10,7 +10,7 @@ public class BakerService {
 
     private BakerRepository repository;
 
-
+    @Autowired
     public BakerService(BakerRepository repository) {
         this.repository = repository;
     }

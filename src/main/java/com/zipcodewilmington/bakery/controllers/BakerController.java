@@ -13,7 +13,7 @@ public class BakerController {
 
     private BakerService service;
 
-
+    @Autowired
     public BakerController(BakerService service) {
         this.service = service;
     }
